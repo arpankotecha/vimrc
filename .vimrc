@@ -19,6 +19,7 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-abolish'
+Plugin 'prettier/vim-prettier'
 
 call vundle#end()
 filetype indent plugin on
@@ -45,6 +46,11 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 set scrolloff=5
 
 :let mapleader = ","
+
+" automatic js and vue formatting
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.css,*.less,*.scss,*.vue Prettier
+
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*pycache*,*/node_modules/*     " MacOSX/Linux
 
